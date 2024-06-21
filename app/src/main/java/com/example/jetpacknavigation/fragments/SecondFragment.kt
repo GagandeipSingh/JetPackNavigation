@@ -1,6 +1,7 @@
 package com.example.jetpacknavigation.fragments
 
 import android.os.Bundle
+import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -52,16 +53,30 @@ class SecondFragment : Fragment() {
             if(binding.et2.text.toString().length == 1){
                 binding.et3.requestFocus()
             }
-            if(binding.et2.text.toString() == ""){
+        }
+        binding.et2.setOnKeyListener { _, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_DEL && event.action == KeyEvent.ACTION_DOWN) {
+                // Handle backspace key press
+                binding.et2.text = null
                 binding.et1.requestFocus()
+                true // Return true to consume the event
+            } else {
+                false // Return false to allow normal key handling
             }
         }
         binding.et3.doOnTextChanged { _, _, _, _ ->
             if(binding.et3.text.toString().length == 1){
                 binding.et4.requestFocus()
             }
-            if(binding.et3.text.toString() == ""){
+        }
+        binding.et3.setOnKeyListener { _, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_DEL && event.action == KeyEvent.ACTION_DOWN) {
+                // Handle backspace key press
+                binding.et3.text = null
                 binding.et2.requestFocus()
+                true // Return true to consume the event
+            } else {
+                false // Return false to allow normal key handling
             }
         }
         binding.et4.doOnTextChanged { _, _, _, _ ->
@@ -69,8 +84,15 @@ class SecondFragment : Fragment() {
                 binding.et4.clearFocus()
                 binding.chkOtp.performClick()
             }
-            if(binding.et4.text.toString() == ""){
+        }
+        binding.et4.setOnKeyListener { _, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_DEL && event.action == KeyEvent.ACTION_DOWN) {
+                // Handle backspace key press
+                binding.et4.text = null
                 binding.et3.requestFocus()
+                true // Return true to consume the event
+            } else {
+                false // Return false to allow normal key handling
             }
         }
     }
