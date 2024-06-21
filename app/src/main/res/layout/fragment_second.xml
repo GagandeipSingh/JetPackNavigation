@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/customMainLayout"
+    tools:context=".fragments.SecondFragment">
+
+
+    <TextView
+        android:id="@+id/otpTxt"
+        style="@style/customTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="100dp"
+        android:text="@string/otpTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/otpLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otpTxt">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/etL1"
+            android:layout_margin="10dp"
+            style="@style/customTxtLayout"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:hint="@string/nullTxt"
+                style="@style/customETxt2"
+                android:inputType="number"
+                android:maxLength="1"
+                android:maxLines="1"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/etL2"
+            android:layout_margin="10dp"
+            style="@style/customTxtLayout"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:hint="@string/nullTxt"
+                style="@style/customETxt2"
+                android:inputType="number"
+                android:maxLength="1"
+                android:maxLines="1"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/etL3"
+            android:layout_margin="10dp"
+            style="@style/customTxtLayout"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:hint="@string/nullTxt"
+                style="@style/customETxt2"
+                android:inputType="number"
+                android:maxLength="1"
+                android:maxLines="1"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/etL4"
+            android:layout_margin="10dp"
+            style="@style/customTxtLayout"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:hint="@string/nullTxt"
+                style="@style/customETxt2"
+                android:inputType="number"
+                android:maxLength="1"
+                android:maxLines="1"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/chkOtp"
+        style="@style/btnLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/chkOtp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otpLayout" />
+</androidx.constraintlayout.widget.ConstraintLayout>

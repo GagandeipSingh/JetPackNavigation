@@ -1,0 +1,36 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.JetPackNavigation" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+         <item name="colorPrimary">@color/my_dark_primary</item>
+         <item name="colorOnPrimary">@color/white</item>
+    </style>
+    <style name="customMainLayout">
+        <item name="android:background">@color/white</item>
+    </style>
+    <style name="customTxtLayout">
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="android:textColorHint">@color/my_dark_primary</item>
+        <item name="boxStrokeColor">@color/my_dark_primary</item>
+        <item name="boxStrokeErrorColor">@color/red</item>
+        <item name="cursorErrorColor">@color/red</item>
+        <item name="errorTextColor">@color/red</item>
+        <item name="errorIconTint">@color/red</item>
+
+    </style>
+    <style name="customTxt">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="customETxt1">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="customETxt2">
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+</resources>
