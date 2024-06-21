@@ -65,6 +65,7 @@ class FirstFragment : Fragment() {
                     putExtra("body", bodyText)
                 }
                 startActivity(emailIntent)
+                binding.emailValue.text = null
                 findNavController().navigate(R.id.secondFragment)
             }
         }
