@@ -7,7 +7,29 @@
     style="@style/customMainLayout"
     tools:context=".fragments.SecondFragment">
 
-
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otpLayout"
+        android:visibility="gone"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/correct" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationWView"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chkOtp"
+        android:visibility="gone"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/incorrect" />
     <TextView
         android:id="@+id/otpTxt"
         style="@style/customTxt"
@@ -33,7 +55,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="wrap_content"
             android:id="@+id/etL1"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             style="@style/customTxtLayout"
             android:layout_height="wrap_content">
 
@@ -43,16 +65,15 @@
                 android:layout_height="wrap_content"
                 android:autofillHints=""
                 android:hint="@string/nullTxt"
+                android:digits="0123456789"
                 style="@style/customETxt2"
                 android:inputType="number"
-                android:maxLength="1"
-                android:maxLines="1"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="wrap_content"
             android:id="@+id/etL2"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             style="@style/customTxtLayout"
             android:layout_height="wrap_content">
 
@@ -63,15 +84,15 @@
                 android:autofillHints=""
                 android:hint="@string/nullTxt"
                 style="@style/customETxt2"
-                android:inputType="number"
                 android:maxLength="1"
-                android:maxLines="1"
+                android:digits="0123456789"
+                android:inputType="number"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="wrap_content"
             android:id="@+id/etL3"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             style="@style/customTxtLayout"
             android:layout_height="wrap_content">
 
@@ -81,16 +102,16 @@
                 android:layout_height="wrap_content"
                 android:autofillHints=""
                 android:hint="@string/nullTxt"
+                android:digits="0123456789"
                 style="@style/customETxt2"
                 android:inputType="number"
                 android:maxLength="1"
-                android:maxLines="1"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="wrap_content"
             android:id="@+id/etL4"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             style="@style/customTxtLayout"
             android:layout_height="wrap_content">
 
@@ -100,14 +121,32 @@
                 android:layout_height="wrap_content"
                 android:autofillHints=""
                 android:hint="@string/nullTxt"
+                android:maxLength="1"
+                android:digits="0123456789"
                 style="@style/customETxt2"
                 android:inputType="number"
-                android:maxLength="1"
-                android:maxLines="1"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tempOtp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        style="@style/customTempError"
+        android:visibility="gone"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otpLayout" />
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        app:barrierDirection="bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:constraint_referenced_ids="otpLayout,tempOtp"/>
 
     <Button
         android:id="@+id/chkOtp"
@@ -118,5 +157,6 @@
         android:layout_marginTop="30dp"
         android:layout_marginStart="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otpLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/barrier" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

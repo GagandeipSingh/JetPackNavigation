@@ -3,11 +3,11 @@ package com.example.jetpacknavigation.fragments
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.jetpacknavigation.R
 import com.example.jetpacknavigation.databinding.FragmentFirstBinding
@@ -49,7 +49,7 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.gtOtp.setOnClickListener {
             val emailRegex = Regex("^[\\w.-]+@[\\w.-]+\\.\\w{2,}$")
-            if(binding.emailValue.text.toString() == ""){
+            if(binding.emailValue.text.toString().trim() == ""){
                 binding.emailLayout.error = "Enter Email.."
             }
             else if(!binding.emailValue.text.toString().matches(emailRegex)){
@@ -66,7 +66,9 @@ class FirstFragment : Fragment() {
                 }
                 startActivity(emailIntent)
                 binding.emailValue.text = null
-                findNavController().navigate(R.id.secondFragment)
+                val bundle = Bundle()
+                bundle.putString("otp",randomNum)
+                findNavController().navigate(R.id.secondFragment,bundle)
             }
         }
         binding.emailValue.doOnTextChanged { _, _, _, _ ->

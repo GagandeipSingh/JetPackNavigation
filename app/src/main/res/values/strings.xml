@@ -9,4 +9,8 @@
     <string name="nullTxt"></string>
     <string name="chkOtp">Check OTP</string>
     <string name="bodyTxt">OTP for verification is : %1$s</string>
+    <string name="enter_otp">"Enter Correct OTP..\u00A0\u00A0"</string>
+    <string name="e_password">Enter Password</string>
+    <string name="r_password">Re-Enter Password</string>
+    <string name="update">Update</string>
 </resources>
