@@ -5,7 +5,7 @@
     <string name="gtOtp">Get OTP</string>
     <string name="emailTxt">Enter Your Email..</string>
     <string name="email">Email</string>
-    <string name="otpTxt">Please Enter the OTP received\nat Email</string>
+    <string name="otpTxt">Enter the OTP received at Email:\n\n%1$s</string>
     <string name="nullTxt"></string>
     <string name="chkOtp">Check OTP</string>
     <string name="bodyTxt">OTP for verification is : %1$s</string>

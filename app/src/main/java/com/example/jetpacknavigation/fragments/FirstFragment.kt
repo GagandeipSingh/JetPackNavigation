@@ -65,10 +65,11 @@ class FirstFragment : Fragment() {
                     putExtra("body", bodyText)
                 }
                 startActivity(emailIntent)
-                binding.emailValue.text = null
                 val bundle = Bundle()
                 bundle.putString("otp",randomNum)
+                bundle.putString("email",binding.emailValue.text.toString())
                 findNavController().navigate(R.id.secondFragment,bundle)
+                binding.emailValue.text = null
             }
         }
         binding.emailValue.doOnTextChanged { _, _, _, _ ->

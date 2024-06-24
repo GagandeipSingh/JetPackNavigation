@@ -27,6 +27,7 @@ private const val ARG_PARAM2 = "param2"
 class SecondFragment : Fragment() {
     private lateinit var binding: FragmentSecondBinding
     private var otp : String? = null
+    private var emailValue : String? = null
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -34,6 +35,7 @@ class SecondFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+            emailValue = it.getString("email")
             otp = it.getString("otp")
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
@@ -51,6 +53,7 @@ class SecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.otpTxt.text = getString(R.string.otpTxt,emailValue)
         binding.et1.doOnTextChanged { text, _, _, _ ->
             if(text.toString().length == 4){
                 binding.et1.setText(text?.substring(0,1))
