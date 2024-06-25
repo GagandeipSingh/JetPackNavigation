@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.jetpacknavigation.MainActivity
 import com.example.jetpacknavigation.R
 import com.example.jetpacknavigation.databinding.FragmentFirstBinding
 
@@ -24,12 +25,14 @@ private const val ARG_PARAM2 = "param2"
  */
 class FirstFragment : Fragment() {
     private lateinit var binding: FragmentFirstBinding
+    private lateinit var mainAct : MainActivity
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mainAct = activity as MainActivity
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
@@ -47,6 +50,7 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mainAct.supportActionBar?.title = "First Fragment"
         binding.gtOtp.setOnClickListener {
             val emailRegex = Regex("^[\\w.-]+@[\\w.-]+\\.\\w{2,}$")
             if(binding.emailValue.text.toString().trim() == ""){

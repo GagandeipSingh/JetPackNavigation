@@ -10,8 +10,10 @@ import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.jetpacknavigation.MainActivity
 import com.example.jetpacknavigation.R
 import com.example.jetpacknavigation.databinding.FragmentSecondBinding
+import com.google.android.material.appbar.AppBarLayout
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -26,6 +28,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class SecondFragment : Fragment() {
     private lateinit var binding: FragmentSecondBinding
+    private lateinit var mainAct : MainActivity
     private var otp : String? = null
     private var emailValue : String? = null
     // TODO: Rename and change types of parameters
@@ -34,14 +37,15 @@ class SecondFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mainAct = activity as MainActivity
         arguments?.let {
             emailValue = it.getString("email")
             otp = it.getString("otp")
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-    }
 
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -53,6 +57,9 @@ class SecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mainAct.supportActionBar?.title = "Second Fragment"
+        mainAct.supportActionBar?.setHomeButtonEnabled(true)
+
         binding.otpTxt.text = getString(R.string.otpTxt,emailValue)
         binding.et1.doOnTextChanged { text, _, _, _ ->
             if(text.toString().length == 4){
@@ -64,7 +71,6 @@ class SecondFragment : Fragment() {
                 binding.chkOtp.performClick()
             }
         }
-
         val digitMap = mapOf(
             KeyEvent.KEYCODE_0 to '0',
             KeyEvent.KEYCODE_1 to '1',
@@ -129,7 +135,8 @@ class SecondFragment : Fragment() {
                 else if(binding.et3.text.length == 1){
                     binding.et4.requestFocus()
                     binding.et4.setText(digitMap[keyCode].toString())
-                    binding.et4.setSelection(binding.et4.text.length)
+                    binding.et4.clearFocus()
+                    binding.chkOtp.performClick()
                     return@setOnKeyListener true
                 }
             }
@@ -142,17 +149,10 @@ class SecondFragment : Fragment() {
         }
         binding.et4.setOnKeyListener { _, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode >= KeyEvent.KEYCODE_0 && keyCode <= KeyEvent.KEYCODE_9) {
-                if(binding.et4.text.isEmpty()) {
                     binding.et4.setText(digitMap[keyCode].toString())
                     binding.et4.clearFocus()
                     binding.chkOtp.performClick()
                     return@setOnKeyListener true // Consumes the key event
-                }
-                else if(binding.et4.text.length == 1){
-                    binding.et4.clearFocus()
-                    binding.chkOtp.performClick()
-                    return@setOnKeyListener true
-                }
             }
             else if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_DEL){
                 binding.et4.text = null

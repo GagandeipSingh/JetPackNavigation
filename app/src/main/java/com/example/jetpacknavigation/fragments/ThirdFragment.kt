@@ -5,11 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.example.jetpacknavigation.R
+import com.example.jetpacknavigation.MainActivity
 import com.example.jetpacknavigation.databinding.FragmentThirdBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -24,12 +22,14 @@ private const val ARG_PARAM2 = "param2"
  */
 class ThirdFragment : Fragment() {
     private lateinit var binding: FragmentThirdBinding
+    private lateinit var mainAct : MainActivity
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mainAct = activity as MainActivity
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
@@ -47,12 +47,7 @@ class ThirdFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val callback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                findNavController().navigate(R.id.action_thirdFragment_to_firstFragment)
-            }
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+        mainAct.supportActionBar?.title = "Third Fragment"
         binding.update.setOnClickListener {
             if(binding.password.text.toString().trim().isEmpty()){
                 binding.passwordLayout.error = "Enter Password.."
@@ -68,7 +63,6 @@ class ThirdFragment : Fragment() {
                 binding.rPasswordLayout.error = "Passwords Not Match.."
             }
             else{
-                findNavController().navigate(R.id.action_thirdFragment_to_firstFragment)
                 binding.password.text = null
                 binding.rPassword.text = null
                 binding.password.clearFocus()
