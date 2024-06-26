@@ -13,7 +13,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.jetpacknavigation.MainActivity
 import com.example.jetpacknavigation.R
 import com.example.jetpacknavigation.databinding.FragmentSecondBinding
-import com.google.android.material.appbar.AppBarLayout
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -58,7 +57,6 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mainAct.supportActionBar?.title = "Second Fragment"
-        mainAct.supportActionBar?.setHomeButtonEnabled(true)
 
         binding.otpTxt.text = getString(R.string.otpTxt,emailValue)
         binding.et1.doOnTextChanged { text, _, _, _ ->

@@ -52,11 +52,10 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         mainAct.supportActionBar?.title = "First Fragment"
         binding.gtOtp.setOnClickListener {
-            val emailRegex = Regex("^[\\w.-]+@[\\w.-]+\\.\\w{2,}$")
-            if(binding.emailValue.text.toString().trim() == ""){
+            if(binding.emailValue.text.trim().isEmpty()){
                 binding.emailLayout.error = "Enter Email.."
             }
-            else if(!binding.emailValue.text.toString().matches(emailRegex)){
+            else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(binding.emailValue.text.trim().toString()).matches()){
                 binding.emailLayout.error = "Enter Correct Email.."
             }
             else{
