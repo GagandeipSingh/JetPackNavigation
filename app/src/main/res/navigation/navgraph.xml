@@ -9,7 +9,15 @@
         android:id="@+id/firstFragment"
         android:name="com.example.jetpacknavigation.fragments.FirstFragment"
         android:label="fragment_first"
-        tools:layout="@layout/fragment_first" />
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_firstFragment_to_secondFragment"
+            app:destination="@id/secondFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.example.jetpacknavigation.fragments.SecondFragment"
@@ -19,6 +27,9 @@
             android:id="@+id/action_secondFragment_to_thirdFragment3"
             app:destination="@id/thirdFragment"
             app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
             app:popUpTo="@id/firstFragment" />
     </fragment>
     <fragment

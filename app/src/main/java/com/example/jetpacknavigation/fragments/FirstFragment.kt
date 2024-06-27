@@ -71,7 +71,7 @@ class FirstFragment : Fragment() {
                 val bundle = Bundle()
                 bundle.putString("otp",randomNum)
                 bundle.putString("email",binding.emailValue.text.toString())
-                findNavController().navigate(R.id.secondFragment,bundle)
+                findNavController().navigate(R.id.action_firstFragment_to_secondFragment,bundle)
                 binding.emailValue.text = null
             }
         }
